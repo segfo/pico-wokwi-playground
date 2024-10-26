@@ -16,7 +16,8 @@ RustでRaspberry Pi Picoをno_stdで走らせるためのサンプルコード�
     cargo build
     elf2uf2-rs target/thumbv6m-none-eabi/debug/pico-wokwi-playground
     ```
-4. `F1`もしくは`Ctrl+Shift+P`で`>Wokwi: Start Simulator`選択し、Wokwiシミュレータを起動します。  
+4. `F1`もしくは`Ctrl+Shift+P`で`>Wokwi: Start Simulator`選択し、Wokwiシミュレータを起動します。
+    （初めての人はここらへんでライセンス認証が走るので、GitHubとかのアカウントでSSOログインすると認証できます。）  
 ![](./meta/wokwi.png)
 
 無事LEDがチカチカしてればOKです。
