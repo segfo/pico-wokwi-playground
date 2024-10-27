@@ -49,7 +49,7 @@ fn main() -> ! {
         &mut pac.RESETS,
     );
 
-    let mut led_pin = pins.gpio5.into_push_pull_output();
+    let mut led_pin = pins.gpio6.into_push_pull_output();
 
     let uart_pins = (
         // UART TX (characters sent from RP2040) on pin 1 (GPIO0)

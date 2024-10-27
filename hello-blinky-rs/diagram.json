@@ -1,54 +1,48 @@
 {
   "version": 1,
-  "author": "sksat",
+  "author": "Uri Shaked",
+  "editor": "wokwi",
   "parts": [
     {
       "type": "wokwi-pi-pico",
       "id": "pico",
-      "top": 0.0,
-      "left": 0.0,
-      "rotate": 0
+      "top": 123.67,
+      "left": 135.97,
+      "rotate": 90,
+      "hide": false,
+      "attrs": { "env": "arduino-community" }
     },
     {
-      "type": "wokwi-led",
-      "id": "led1",
-      "top": 0,
-      "left": -50,
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": -17.85,
+      "left": 22.03,
       "rotate": 0,
       "hide": false,
-      "attrs": {
-        "color": "red"
-      }
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 114.8,
+      "left": 226.31,
+      "rotate": 0,
+      "hide": false,
+      "attrs": { "value": "220" }
     }
   ],
   "connections": [
-    [
-      "pico:GP0",
-      "$serialMonitor:RX",
-      "",
-      []
-    ],
-    [
-      "pico:GP1",
-      "$serialMonitor:TX",
-      "",
-      []
-    ],
-    [
-      "pico:GP5",
-      "led1:A",
-      "green",
-      [
-        "h0"
-      ]
-    ],
-    [
-      "pico:GND.2",
-      "led1:C",
-      "black",
-      [
-        "h0"
-      ]
-    ]
+    [ "pico:GND.1", "lcd:VSS", "black", [ "v-51", "*", "h0", "v18" ] ],
+    [ "pico:GND.1", "lcd:K", "black", [ "v-51", "*", "h0", "v18" ] ],
+    [ "pico:GND.1", "lcd:RW", "black", [ "v-51", "*", "h0", "v18" ] ],
+    [ "pico:VSYS", "lcd:VDD", "red", [ "v16", "h-16" ] ],
+    [ "pico:VSYS", "r1:2", "red", [ "v16", "h0" ] ],
+    [ "r1:1", "lcd:A", "pink", [] ],
+    [ "pico:GP12", "lcd:RS", "blue", [ "v-16", "*", "h0", "v20" ] ],
+    [ "pico:GP11", "lcd:E", "purple", [ "v-20", "*", "h0", "v20" ] ],
+    [ "pico:GP10", "lcd:D4", "green", [ "v-24", "*", "h0", "v20" ] ],
+    [ "pico:GP9", "lcd:D5", "brown", [ "v-28", "*", "h0", "v20" ] ],
+    [ "pico:GP8", "lcd:D6", "gold", [ "v-32", "*", "h0", "v20" ] ],
+    [ "pico:GP7", "lcd:D7", "gray", [ "v-36", "*", "h0", "v20" ] ]
   ]
 }
